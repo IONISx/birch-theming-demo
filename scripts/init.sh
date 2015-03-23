@@ -37,7 +37,7 @@ echo "update auth_user set is_superuser=1 where username='staff'" \
 echo
 
 log "Update darklang config"
-echo "insert into dark_lang_darklangconfig set change_date=curtime(), changed_by_id=1, enabled=1, released_languages='en,fr';"
+echo "insert into dark_lang_darklangconfig set change_date=curtime(), changed_by_id=1, enabled=1, released_languages='en,fr';" \
     | mysql -u root edxapp \
     && log Done \
     || fail Failed
