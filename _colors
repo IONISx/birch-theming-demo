@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+cd $(dirname "$0")
+
+fail() { echo "[-] $@"; exit 1; }
+
+./private/undo
+
+test -n "$1" && {
+    color1="$1"
+} || fail 'Missing color 1'
+
+test -n "$2" && {
+    color2="$2"
+} || fail 'Missing color 2'
+
+sed -i.bak \
+    -e "s/@color-primary: #3c556c;/@color-primary: $color1;/" \
+    -e "s/@color-secondary: #1e9ed7;/@color-secondary: $color2;/" \
+    src/theme/static/less/variables.less
+
+find . -name "*.bak" -delete
+
+./private/update

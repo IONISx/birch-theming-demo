@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+cd $(dirname "$0")
+
+cd ../src/theme
+
+git checkout .
+git clean -fd

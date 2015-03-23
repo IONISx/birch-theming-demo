@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+vagrant ssh -c 'grunt --gruntfile /edx/app/edxapp/themes/ionisx/Gruntfile.js less'
